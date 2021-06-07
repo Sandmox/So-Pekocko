@@ -10,7 +10,7 @@ mongoose.connect('mongodb+srv://Alex18:Mongalex18!@cluster0.m4ibg.mongodb.net/my
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 app.use((req, res) =>{
-res.json({Message: "Votre requête a bien été reçue !"});
+res.json({Message: "Votre requête a bien été reçue héhé !"});
 });
 
 module.exports = app;
