@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const Sauce = require('./models/sauces');
 const User = require('./models/user');
 const userRoutes = require('./routes/user');
+const saucesRoutes = require('./routes/sauces');
 
 
 mongoose.connect('mongodb+srv://Alex18:Mongalex18!@cluster0.m4ibg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
   });
 
 app.use('/api/auth', userRoutes);
+//app.use('/api/sauces', saucesRoutes);
 
 /*app.post('/api/auth/signup', (req, res, next) =>{
     const user = new User({
