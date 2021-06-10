@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 
 const Sauce = require('./models/sauces');
 const User = require('./models/user');
+const userRoutes = require('./routes/user');
+
 
 mongoose.connect('mongodb+srv://Alex18:Mongalex18!@cluster0.m4ibg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -21,7 +23,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.post('/api/auth/signup', (req, res, next) =>{
+app.use('/api/auth', userRoutes);
+
+/*app.post('/api/auth/signup', (req, res, next) =>{
     const user = new User({
         ...req.body
     });
@@ -40,6 +44,6 @@ app.use('/api/sauces', (req, res, next) =>{
 
 app.use((req, res) =>{
 res.json({Message: "Votre requête a bien été reçue !"});
-});
+});*/
 
 module.exports = app;
