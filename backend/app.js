@@ -26,27 +26,6 @@ app.use((req, res, next) => {
   });
 
 app.use('/api/auth', userRoutes);
-//app.use('/api/sauces', saucesRoutes);
-
-/*app.post('/api/auth/signup', (req, res, next) =>{
-    const user = new User({
-        ...req.body
-    });
-    user.save()
-    .then(() => res.status(201).json({ message: 'Utilisateur enregistré !'}))
-    .catch(error => res.status(400).json({ error }));
-});
-
-app.post('/api/auth/login', (req, res, next) =>{
-    res.status(201).json({Message : "Tout est ok!"});
-});
-
-app.use('/api/sauces', (req, res, next) =>{
-    res.status(200).json([]);
-});
-
-app.use((req, res) =>{
-res.json({Message: "Votre requête a bien été reçue !"});
-});*/
+app.use('/api/sauces', saucesRoutes);
 
 module.exports = app;
