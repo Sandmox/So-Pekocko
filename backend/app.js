@@ -16,6 +16,7 @@ mongoose.connect('mongodb+srv://Alex18:Mongalex18!@cluster0.m4ibg.mongodb.net/my
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
+app.use(bodyParser.urlencoded({ extended: false }))   
 app.use(bodyParser.json());  
 
 app.use((req, res, next) => {
