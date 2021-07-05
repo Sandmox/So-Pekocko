@@ -1,15 +1,13 @@
 const Sauce = require('../models/sauces');
-//const fs = require("fs");
+const fs = require("fs");
 //const { json } = require("body-parser");
 
 exports.createSauce = (req, res, next) => {
     const sauceObject = JSON.parse(req.body.sauce);
-    delete sauceObject._id;
     const sauce = new Sauce({  
       ...sauceObject,
       imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
-    //delete sauce._id;
     console.log(sauce);
     sauce.save()
       .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
@@ -58,7 +56,7 @@ exports.deleteSauce = (req, res, next) => {
       .catch((error) => res.status(400).json({ error }));
   };
 
-  /*exports.likeSauce = (req, res, next) => {
+  exports.likeSauce = (req, res, next) => {
     console.log({ _id: req.params.id });
     console.log({ likes: req.body.like });
     console.log({ usersLiked: req.body.userId });
@@ -116,6 +114,6 @@ exports.deleteSauce = (req, res, next) => {
         })
         .catch((error) => res.status(400).json({ error }));
     }
-  };*/
+  };
 
  
